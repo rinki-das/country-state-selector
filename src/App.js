@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css'; // Ensure CSS is properly linked
 
 function App() {
   const [country, setCountry] = useState(null);
@@ -10,7 +11,8 @@ function App() {
 
   const countries = [
     { value: 'usa', label: 'USA' },
-    { value: 'canada', label: 'Canada' }
+    { value: 'canada', label: 'Canada' },
+    { value: 'india', label: 'India' }
   ];
 
   const statesOptions = {
@@ -21,18 +23,24 @@ function App() {
     canada: [
       { value: 'ontario', label: 'Ontario' },
       { value: 'quebec', label: 'Quebec' }
+    ],
+    india: [
+      { value: 'maharashtra', label: 'Maharashtra' },
+      { value: 'tamil nadu', label: 'Tamil Nadu' }
     ]
   };
 
   const handleCountryChange = selectedOption => {
     setCountry(selectedOption);
     setStates(statesOptions[selectedOption.value] || []);
-    setState(null);
+    setState(null);  // Reset state selection when country changes
   };
 
   const handleStateChange = selectedOption => {
     setState(selectedOption);
-    toast(`You selected ${selectedOption.label}`);
+    if (selectedOption) {
+        toast(`You selected ${selectedOption.label}`, { position: "top-center" });
+    }
   };
 
   return (
@@ -43,6 +51,7 @@ function App() {
         onChange={handleCountryChange}
         options={countries}
         placeholder="Select a country"
+        className="Select-container"
       />
       <Select
         value={state}
@@ -50,8 +59,9 @@ function App() {
         options={states}
         placeholder="Select a state"
         isDisabled={!country}
+        className="Select-container"
       />
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
     </div>
   );
 }

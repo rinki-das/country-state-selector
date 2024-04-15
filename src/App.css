@@ -1,38 +1,79 @@
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .App {
+  width: 100%;
+  max-width: 480px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #333;
+  margin-top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Select-container {
+  margin: 20px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Custom styles for react-select */
+.css-2b097c-container, .css-1s2u09g-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 16px;
+  transition: border-color .2s;
+}
+
+.css-1s2u09g-control:hover, .css-1pahdxg-control {
+  border-color: #007BFF; /* Highlight color when hovered or focused */
+}
+
+.css-1okebmr-indicatorSeparator {
+  display: none; /* Hides the separator */
+}
+
+.css-tlfecz-indicatorContainer {
+  color: #555;
+  padding: 0 8px;
+}
+
+/* Styling the dropdown menu */
+.css-26l3qy-menu {
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: none;
+  overflow: hidden;
+}
+
+/* Toast notification styling */
+.Toastify__toast-container {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.Toastify__toast {
+  border-radius: 4px;
+  background-color: #0b0c0f;
+  color: white;
+  padding: 10px 20px;
+}
+
+.Toastify__toast-body {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
